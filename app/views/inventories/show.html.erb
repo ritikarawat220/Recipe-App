@@ -1,0 +1,13 @@
+<h1>Inventory Details</h1>
+
+<h2><%= @inventory.name %></h2>
+<p><%= @inventory.description %></p>
+
+<h3>Add New Food</h3>
+<%= form_with model: @food, url: inventory_inventory_foods_path(@inventory) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+  <%= f.submit "Add Food" %>
+<% end %>

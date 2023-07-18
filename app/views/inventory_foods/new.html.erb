@@ -1,0 +1,20 @@
+<%= form_with model: @inventory_food, url: inventory_inventory_foods_path(@inventory) do |f| %>
+  <div>
+    <%= f.label :food_id, "Food" %>
+    <%= f.collection_select :food_id, @foods, :id, :name, prompt: "Select a food", class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, autofocus: true, autocomplete: "quantity", class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :quantity_unit, "Quantity unit" %>
+    <%= f.text_field :quantity_unit, autofocus: true, autocomplete: "quantity_unit", class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.submit "Add Food", class: 'btn btn-outline-dark btn-sm' %>
+  </div>
+<% end %>
