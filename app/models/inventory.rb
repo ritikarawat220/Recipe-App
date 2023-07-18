@@ -1,3 +1,3 @@
 class Inventory < ApplicationRecord
-    belongs_to :users
-  end
+  belongs_to :users
+end
