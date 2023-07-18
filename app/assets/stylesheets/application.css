@@ -1,15 +1,83 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+  
+    --color-primary: #398404;
+  
+    /* #FE3333; */
+    --color-primary-light: #201717;
+    --color-text-orange: #201717;
+    --color-text-red: #c00;
+    --color-text-black: #353333;
+    --color-text-gray-light: #535151;
+    --color-text-gray: #797979;
+  }
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .row-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .max-width {
+    width: 100%;
+  }
+  
+  .no-styling {
+    color: var(--color-text-black);
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .input-default {
+    min-width: 233px;
+    padding: 12px;
+    border: 2px solid #7979798f;
+    color: var(--color-text-black);
+    outline: 0;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .input-default:focus {
+    border: 2px solid var(--color-text-red);
+    color: var(--color-text-red);
+  }
+  
+  .btn-bg-transparent {
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    background-color: transparent;
+    padding: 8px 32px;
+    border: 3px solid var(--color-primary);
+    transition-duration: 400ms;
+  }
+  
+  .btn-bg-transparent:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
