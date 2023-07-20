@@ -1,9 +1,7 @@
 <div class="food-form-wrapper">
   <h1>Create New Food</h1>
 
-  <%= render "remote_modal", title: "New item" do %>
     <%= render "form", food: @food %>
-  <% end %>
 
   <div class="back-food-btn">
     <%= link_to "Back to Foods", foods_path %>
