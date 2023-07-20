@@ -78,6 +78,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "bootstrap", "~> 5.2"
+gem 'bootstrap', '~> 5.2'
 
-gem "sassc-rails", "~> 2.1"
+gem 'sassc-rails', '~> 2.1'
