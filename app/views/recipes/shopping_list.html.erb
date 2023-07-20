@@ -1,0 +1,25 @@
+<br>
+ <h2 class="text-center">Shopping List</h2>
+ <section>
+   <div class="d-flex justify-content-between align-items-center">
+     <div>
+       <p>Amount of food to buy: <span><%=%></span> </p>
+       <p>Total value of food needed:<span><%%></span> </p>
+     </div>
+     <div>
+       <p>Recipe: <%= link_to @recipe.name, recipe_path(@recipe) %></p>
+       <p>Inventory:</p>
+     </div>
+   </div>
+   <table class="table table-striped table-bordered">
+     <thead>
+       <tr>
+         <th scope="col">Food</th>
+         <th scope="col">Quantity</th>
+         <th scope="col">Price</th>
+       </tr>
+     </thead>
+     <tbody>
+     </tbody>
+   </table>
+ </section> 
