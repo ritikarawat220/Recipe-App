@@ -1,0 +1,16 @@
+<%= form_with model: @recipe_food, url: recipe_recipe_food_path(@recipe, @recipe_food) do |f| %>
+  <!-- Form fields for editing a RecipeFood -->
+  <div>
+    <%= f.label :food_id, "Food" %>
+    <%= f.collection_select :food_id, @foods, :id, :name, prompt: "Select a food", class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, autofocus: true, autocomplete: "quantity", class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.submit "Edit Ingredient", class: 'btn btn-outline-dark btn-sm' %>
+  </div>
+<% end %>
