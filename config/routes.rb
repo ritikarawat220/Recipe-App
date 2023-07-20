@@ -9,10 +9,6 @@ Rails.application.routes.draw do
   resources :foods do
     resources :recipe_foods, only: [:new, :create, :destroy]
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 
   authenticated :user do
     root 'recipes#index', as: :authenticated_root
