@@ -77,3 +77,7 @@ group :test do
   gem 'shoulda-matchers', '~> 5.0'
   gem 'webdrivers'
 end
+
+gem "bootstrap", "~> 5.2"
+
+gem "sassc-rails", "~> 2.1"
