@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  # get 'home/index'
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,5 +9,8 @@ Rails.application.routes.draw do
     resources :inventory_foods, only: [:new, :create, :destroy]
   end
 
+  resources :foods do
+    resources :recipe_foods, only: [:new, :create, :destroy]
+  end
 
 end
