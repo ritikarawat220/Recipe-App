@@ -13,6 +13,7 @@ RSpec.describe 'foods/edit', type: :view do
     render
 
     assert_select 'form[action=?][method=?]', food_path(food), 'post' do
+      assert_select 'input#food_name[name=?]', 'food[name]'
     end
   end
 end

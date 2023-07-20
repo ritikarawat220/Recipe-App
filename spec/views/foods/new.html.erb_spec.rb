@@ -9,6 +9,7 @@ RSpec.describe 'foods/new', type: :view do
     render
 
     assert_select 'form[action=?][method=?]', foods_path, 'post' do
+      assert_select 'input#food_name[name=?]', 'food[name]'
     end
   end
 end
