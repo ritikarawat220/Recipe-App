@@ -7,9 +7,9 @@ class RecipeFoodsController < ApplicationController
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @recipe_food = @recipe.recipe_foods.build(recipe_food_params)
+    @add_recipe_food = @recipe.recipe_foods.build(recipe_food_params)
 
-    if @recipe_food.save
+    if @add_recipe_food.save
       flash[:notice] = 'Food linked to recipe successfully!'
       redirect_to recipe_path(@recipe)
     else
@@ -40,9 +40,14 @@ class RecipeFoodsController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.find(params[:id])
-    @recipe_food.destroy
-    flash[:notice] = 'Recipe food deleted successfully!'
-    redirect_to recipe_path(@recipe)
+
+    if @recipe_food.destroy
+      flash[:notice] = 'Recipe food deleted successfully!'
+      redirect_to recipe_path(@recipe)
+    else
+      flash[:alert] = 'Recipe food could not be deleted!'
+      redirect_to recipe_path(@recipe)
+    end
   end
 
   private
