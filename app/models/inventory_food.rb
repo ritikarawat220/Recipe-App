@@ -1,9 +1,8 @@
 class InventoryFood < ApplicationRecord
-  belongs_to :food
   belongs_to :inventory
+  belongs_to :food
 
-  validates :quantity, presence: true
-  validates :food_id, presence: true
+  validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :inventory_id, presence: true
-  validates :quantity_unit, presence: true
+  validates :food_id, presence: true
 end
