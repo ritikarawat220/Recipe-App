@@ -13,7 +13,7 @@ class RecipeFoodsController < ApplicationController
       flash[:notice] = 'Food linked to recipe successfully!'
       redirect_to recipe_path(@recipe)
     else
-      @food = Food.all
+      @foods = Food.all
       render :new
     end
   end
@@ -45,7 +45,9 @@ class RecipeFoodsController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
+  private
+
   def recipe_food_params
-    params.require(:recipe_food).permit(:recipe_id, :food_id, :quantity)
+    params.require(:recipe_food).permit(:food_id, :quantity)
   end
 end
