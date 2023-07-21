@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :inventory_foods, only: [:new, :create, :destroy]
   end
 
+  resources :recipes do
+    resources :recipe_foods, only: [:new, :create, :destroy]
+  end
+
   resources :foods do
     resources :recipe_foods, only: [:new, :create, :destroy]
   end
@@ -28,6 +32,8 @@ Rails.application.routes.draw do
 
   get 'shopping_list', to: 'recipes#shopping_list', as: 'shopping_list'
 
+  resources :shopping_list, only: [:index, :show]
+  resources :recipe_food, only: [:index, :show, :edit, :update, :destroy]
   resources :public_recipes, only: %i[index show]
   resources :general_shopping_list, only: [:index, :show]
 
