@@ -32,7 +32,8 @@
             <%= link_to 'Foods', foods_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link", form_class: "nav-link" %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "logout-button nav-link", form_class: "nav-link" %>
+
           </li>
         <% else %>
           <li class="nav-item">
