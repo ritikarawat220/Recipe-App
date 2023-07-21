@@ -2,5 +2,5 @@ class RecipeFood < ApplicationRecord
   belongs_to :recipes
   belongs_to :foods
 
-  validates :quantity, presence: true
+  validates :quantity, presence: true, numericality: { greater_than: 0 }
 end

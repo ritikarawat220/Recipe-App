@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Food, type: :model do
   before :each do
-    @food = Food.create(name: 'kheer', measurement_unit: 3, price: 1, unit_quantity: 'kgs')
+    @food = Food.create(name: 'kheer', measurement_unit: 3, price: 1)
   end
   it 'should have a name' do
     food = @food.name

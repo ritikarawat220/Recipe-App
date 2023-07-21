@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  # get 'home/index'
   root 'home#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+  resources :inventories do
+    resources :inventory_foods, only: [:new, :create, :destroy]
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :foods do
+    resources :recipe_foods, only: [:new, :create, :destroy]
+  end
 
   authenticated :user do
     root 'recipes#index', as: :authenticated_root
