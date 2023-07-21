@@ -81,4 +81,13 @@
   margin-bottom: 2rem;
 }
 
+.list-foods .table td:first-child,
+.list-foods .table th:first-child {
+  width: auto;
+}
+
+.list-foods .table {
+  font-size: 1.5rem;
+}
+
 /* Path: app\assets\stylesheets\food.css */
