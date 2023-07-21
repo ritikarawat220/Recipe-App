@@ -1,6 +1,6 @@
 class PublicRecipesController < ApplicationController
   def index
-    @recipes = Recipe.find_by status: 'public'
+    @public_recipes = Recipe.all.where(status: 'public') && Recipe.all.where.not(user_id: current_user.id)
   end
 
   def show
