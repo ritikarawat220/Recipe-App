@@ -60,30 +60,12 @@ class RecipesController < ApplicationController
   def shopping_list
     @inventory = Inventory.find(params[:inventory_id])
     @recipe = Recipe.find(params[:recipe_id])
-
     recipe_foods = @recipe.recipe_foods
     inventory_foods = @inventory.inventory_foods
 
-    @missing_foods = []
-    @foods = []
+    @missing_foods = find_missing_foods(recipe_foods, inventory_foods)
+    @total_cost = calculate_total_cost(@missing_foods)
 
-    recipe_foods.each do |recipe_food|
-      food = recipe_food.food
-      inventory_food = inventory_foods.find_by(food_id: food.id)
-
-      next unless inventory_food.nil? || inventory_food.quantity < recipe_food.quantity
-
-      missing_quantity = inventory_food.nil? ? recipe_food.quantity : recipe_food.quantity - inventory_food.quantity
-
-      @missing_foods << {
-        name: food.name,
-        missing_quantity:,
-        cost: missing_quantity * food.price
-      }
-      @foods << food
-    end
-
-    @total_cost = @missing_foods.reduce(0) { |total, food| total + food[:cost] }
     render :shopping_list, locals: {
       missing_foods: @missing_foods,
       total_cost: @total_cost,
@@ -92,8 +74,28 @@ class RecipesController < ApplicationController
     }
   end
 
-
   private
+
+  def find_missing_foods(recipe_foods, inventory_foods)
+    missing_foods = []
+    recipe_foods.each do |recipe_food|
+      food = recipe_food.food
+      inventory_food = inventory_foods.find_by(food_id: food.id)
+      next unless inventory_food.nil? || inventory_food.quantity < recipe_food.quantity
+
+      missing_quantity = inventory_food.nil? ? recipe_food.quantity : recipe_food.quantity - inventory_food.quantity
+      missing_foods << {
+        name: food.name,
+        missing_quantity:,
+        cost: missing_quantity * food.price
+      }
+    end
+    missing_foods
+  end
+
+  def calculate_total_cost(missing_foods)
+    missing_foods.reduce(0) { |total, food| total + food[:cost] }
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :cooking_time, :preparation_time, :description, :public, :user_id)
