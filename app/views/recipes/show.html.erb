@@ -1,5 +1,5 @@
 <section>
- 	<% if @recipe.status == 'public' || @recipe.user == current_user %>
+ 	<% if @recipe.public || @recipe.user == current_user %>
  		<h2 class="text-center mb-3"><%= @recipe.name %></h2>
  		<div class="d-flex justify-content-between align-items-center mb-3">
  			<span>Preparation Time: <%= @recipe.preparation_time %></span>
