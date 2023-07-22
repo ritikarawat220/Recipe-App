@@ -1,0 +1,93 @@
+#foods {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+}
+
+.food-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 42vw;
+  background-color: #efefef;
+  padding: 1rem;
+  margin: auto;
+}
+
+.food-form-wrapper form {
+  width: 35vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.container form label,
+.container form input {
+  padding: 10px;
+  font-size: 15px;
+}
+
+.container form input[type="submit"] {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: auto;
+  padding: 10px;
+  align-self: center;
+}
+
+.add-food-btn {
+  border-radius: 5px;
+}
+
+.back-food-btn {
+  border-radius: 35%;
+  align-self: flex-end;
+}
+
+.add-food-btn,
+.back-food-btn {
+  width: fit-content;
+  margin: 10px;
+  padding: 10px;
+  background-color: whitesmoke;
+  color: black;
+  font-size: 17px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px 1px black;
+  cursor: pointer;
+}
+
+.add-food-btn a,
+.back-food-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.add-food-btn:hover,
+.back-food-btn:hover {
+  background-color: #c8f4f4;
+  border: 1px solid #0f87e3;
+  box-shadow: 1px 1px 1px 1px #0f87e3;
+  font-size: large;
+  font-weight: bold;
+}
+
+#foods .add-food-btn {
+  align-self: flex-end;
+  margin-right: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.list-foods .table td:first-child,
+.list-foods .table th:first-child {
+  width: auto;
+}
+
+.list-foods .table {
+  font-size: 1.5rem;
+}
+
+/* Path: app\assets\stylesheets\food.css */

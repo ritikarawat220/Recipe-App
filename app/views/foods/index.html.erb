@@ -1,0 +1,43 @@
+
+<h1 style="margin-top:15px">Foods</h1>
+
+<div id="foods">
+  <div class="add-food-btn">
+    <%= link_to "Add Food", new_food_path, data: { turbo_frame: "remote_modal" }%>
+  </div>
+
+  <div class="list-foods">
+    <% if @foods.empty?%>
+      <h2 style="color: blue">
+        There are no foods in the database.
+      </h2>
+    <% else %>
+      <p style="color: green"><%= notice %></p>
+
+      <table class="table table-striped table-ligth">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Food</th>
+            <th>Measurement Unit</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each_with_index do |food, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= food.name %></td>
+              <td><%= food.measurement_unit %></td>
+              <td><%= food.price %></td>
+              <td>
+                <%= link_to "Delete", food, class: "btn btn-danger", method: :delete, data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,202 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  --color-primary: #398404;
+  --color-primary-light: #201717;
+  --color-text-orange: #201717;
+  --color-text-red: #c00;
+  --color-text-black: #353333;
+  --color-text-gray-light: #535151;
+  --color-text-gray: #797979;
+}
+
+.navbar {
+  background: linear-gradient(135deg, #5324c3, #ff00b1);
+  padding: 10px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+
+  --bs-navbar-brand-font-size: 3.25rem;
+
+  color: black;
+  text-decoration: none;
+  margin-left: 2%;
+}
+
+.nav-link {
+  font-size: 1rem;
+
+  --bs-navbar-nav-link-padding-x: 2.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-weight: bold;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.nav-item {
+  color: #000;
+  font-size: 23px;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: #000;
+  text-shadow: 0 0 15px rgba(59, 58, 58, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.max-width {
+  width: 100%;
+}
+
+.table {
+  width: 80%;
+  margin-top: 20px;
+  min-width: 80%;
+  border: 3px dashed black;
+  border-radius: 5px;
+  border-spacing: 0;
+  box-shadow: 8px 9px 11px rgba(120, 121, 121, 0.3);
+  margin-bottom: 32px;
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+}
+
+.table th {
+  font-weight: 600;
+  text-align: left;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.table th:first-child {
+  min-width: 30%;
+}
+
+.table td {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  color: var(--color-text-gray-light);
+}
+
+.table td:first-child {
+  width: 30%;
+}
+
+.table tr:not(:first-child):hover {
+  background-color: var(--color-primary-light);
+}
+
+.table td:first-child,
+.table th:first-child {
+  padding-left: 24px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.custom-button-width {
+  width: 100px;
+}
+
+.logout-button {
+  background-color: #000;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logout-button:hover {
+  background-color: #000;
+}
+
+.navbar-nav .nav-link {
+  padding: 8px 15px;
+  margin-right: 5px;
+}
+
+.navbar-nav .nav-link.logout-button {
+  background-color: #f44336;
+  color: white;
+  border-radius: 4px;
+}
+
+.navbar-nav .nav-link.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+.navbar-nav .nav-link.sign-up-button {
+  background-color: #4caf50;
+  color: white;
+  border-radius: 4px;
+}
+
+.navbar-nav .nav-link.sign-up-button:hover {
+  background-color: #45a049;
+}
+
+.navbar-nav .nav-link.login-button {
+  background-color: #2196f3;
+  color: white;
+  border-radius: 4px;
+}
+
+.navbar-nav .nav-link.login-button:hover {
+  background-color: #0b7dda;
+}
+
+.navbar-nav .nav-link.sign-in-button {
+  background-color: #ffc107;
+  color: white;
+  border-radius: 4px;
+}
+
+.navbar-nav .nav-link.sign-in-button:hover {
+  background-color: #e0a800;
+}
+
+.public_recipe_list {
+  width: 40vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 1rem auto;
+  list-style: none;
+  padding: 1rem;
+  border: 2px solid rgb(117, 116, 116);
+}
+
+.recipe_user h3 {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.recipe_user p {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.recipe_price {
+  font-size: large;
+}

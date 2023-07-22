@@ -1,0 +1,22 @@
+<section class="my-3 p-3">
+  <% if @public_recipes.empty? %>
+    <h3 class="text-center">No public Recipes Found from Other Users</h3>
+  <% else %>
+    <h3 class="text-center">Public Recipes</h3>
+    <br>
+      <ul>
+        <% @public_recipes.each do |recipe| %>
+          <li class='public_recipe_list'>
+            <div class="recipe_user">
+              <h3><%= recipe.name %> </h3>
+              <p>By: <%= recipe.user.name %></p>
+            </div>
+            <div class="recipe_price">
+              <p>Total food items: <%= recipe.quantity %> <br>
+                Total price: <%= recipe.price %> </p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+  <% end %>
+</section>

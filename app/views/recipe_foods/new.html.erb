@@ -1,0 +1,17 @@
+<h3>Add Ingredient</h3>
+
+<%= form_with model: @recipe_food, url: recipe_recipe_foods_path(@recipe) do |f| %>
+  <div>
+    <%= f.label :food_id, "Food" %>
+    <%= f.collection_select :food_id, @foods, :id, :name, prompt: "Select a food", class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, autofocus: true, autocomplete: "quantity", class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.submit "Add Ingredient", class: 'btn btn-outline-dark btn-sm' %>
+  </div>
+<% end %>

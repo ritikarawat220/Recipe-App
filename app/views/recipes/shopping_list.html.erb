@@ -1,0 +1,32 @@
+<br>
+<h2 class="text-center">Shopping List</h2>
+<section>
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <p>Amount of food to buy: <span><%= @missing_foods.size %></span></p>
+      <p>Total value of food needed: <span><%= @total_cost %></span></p>
+    </div>
+    <div>
+      <p>Recipe: <%= link_to @recipe.name, recipe_path(@recipe) %></p>
+      <p>Inventory: <%= @inventory.name %></p>
+    </div>
+  </div>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @missing_foods.each do |food| %>
+        <tr>
+          <td><%= food[:name] %></td>
+          <td><%= food[:missing_quantity] %></td>
+          <td><%= food[:cost] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

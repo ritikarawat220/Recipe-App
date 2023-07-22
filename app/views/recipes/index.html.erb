@@ -1,0 +1,7 @@
+<section class="my-3 p-3">
+  <% @recipes.each do |recipe| %>
+      <%= render 'recipe', recipe: recipe %>
+  <% end %>
+
+  <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-outline-dark btn-sm' %>
+</section>

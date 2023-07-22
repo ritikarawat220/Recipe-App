@@ -1,0 +1,68 @@
+<section>
+ 	<% if @recipe.public || @recipe.user == current_user %>
+ 		<h2 class="text-center mb-3"><%= @recipe.name %></h2>
+ 		<div class="d-flex justify-content-between align-items-center mb-3">
+ 			<span>Preparation Time: <%= @recipe.preparation_time %></span>
+ 			<div class="form-check form-switch form-check-reverse">
+ 				<input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
+ 				<label class="form-check-label" for="flexSwitchCheckReverse">Public</label>
+ 			</div>
+ 		</div>
+ 		<span class="d-block mb-3">Cooking Time: <%= @recipe.cooking_time %></span>
+ 		<span>Steps goes here...</span>
+ 		<div class="d-flex justify-content-between align-items-center mt-3">
+ 			<button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ 				Generate shopping list
+ 			</button>
+ 			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ 				<div class="modal-dialog">
+ 					<div class="modal-content">
+ 						<div class="modal-header">
+ 							<h1 class="modal-title fs-5" id="exampleModalLabel">Generate shopping list</h1>
+ 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ 						</div>
+ 						<div class="modal-body">
+ 							<span>Choose an inventory to use</span>
+ 							<div class="d-flex justify-content-between align-items-center mt-3">
+ 							<%= form_with(url: shopping_list_path, method: :get) do |f| %>
+ 								<%= f.hidden_field :recipe_id, value: @recipe.id %>
+ 								<%= f.collection_select :inventory_id, @inventories, :id, :name, { prompt: '.. Select Inventory ..' }, id: 'inventory-select' %>
+ 								<%= f.submit 'Generate', class: 'btn btn-outline-dark btn-sm' %>
+ 							<% end %>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe_id: @recipe_id), class: 'btn btn-outline-dark btn-sm' %>
+ 		</div>
+ 	<% end %>
+ 	<hr/>
+ 	<table class="table table-striped table-bordered">
+ 		<% if @recipe.recipe_foods.any? %>
+ 			<thead>
+ 				<tr>
+ 					<th scope="col">Food</th>
+ 					<th scope="col">Quantity</th>
+ 					<th scope="col">Value</th>
+ 					<th scope="col">Actions</th>
+ 				</tr>
+ 			</thead>
+ 			<tbody>
+ 			<% @recipe.recipe_foods.each do |food_recipe| %>
+ 				<tr>
+ 					<td><%=food_recipe.food.name %></td>
+ 					<td><%=food_recipe.quantity %></td>
+ 					<td><%=food_recipe.quantity * food_recipe.food.price %></td>
+ 					<td class="d-flex gap-2">
+ 						<%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, food_recipe), class: 'btn btn-danger btn-sm' %>
+  <%= form_with(url: recipe_recipe_food_path(@recipe, food_recipe), method: :delete, data: { confirm: 'Are you sure?' }) do |f| %>
+    <%= f.submit 'Remove', class: 'btn btn-danger btn-sm' %>
+  <% end %>
+  </td>
+ 				</tr>
+ 			<% end %>
+ 			</tbody>
+ 		<% end %>
+ 	</table>
+ </section> 

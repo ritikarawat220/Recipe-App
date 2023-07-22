@@ -1,0 +1,24 @@
+<br>
+<h2 class="text-center">Add New Inventory</h2>
+<br>
+<%= form_with model: @inventory do |f| %>
+
+	<br>
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name, autofocus: true, autocomplete: 'name', placeholder: 'name', class: 'form-control' %>
+	</div>
+	<br>
+	<div>
+		<%= f.label :Description %>
+		<%= f.text_area :description, autofocus: true, autocomplete: 'description', placeholder: 'description', class: 'form-control' %>
+	</div>
+	<br>
+	<div>
+		<%= f.number_field :user_id, value: current_user.id, type: :hidden %>
+	</div>
+	<br>
+	<div>
+		<%= f.submit class: 'btn btn-outline-dark btn-sm' %>
+	</div>
+<% end %>

@@ -1,0 +1,37 @@
+<br>
+<h2 class="text-center">Add New Recipe</h2>
+<br>
+<%= form_with model: @recipe do |f| %>
+  <div>
+    <%= f.label :status %>
+    <%= f.select :status, %w[Public Private], selected: 'Public', class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, autocomplete: 'name', placeholder: 'name', class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :cooking_time, "Cooking Time" %>
+    <%= f.text_field :cooking_time, autofocus: true, autocomplete: 'cooking_time', placeholder: 'Cooking time', class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :preparation_time, "Preparation Time" %>
+    <%= f.text_field :preparation_time, autofocus: true, autocomplete: 'preparation_time', placeholder: 'Preparation time', class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description, autofocus: true, autocomplete: 'description', placeholder: 'description', class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= f.number_field :user_id, value: current_user.id, type: :hidden %>
+  </div>
+  <br>
+  <div>
+    <%= f.submit "Create Recipe", class: 'btn btn-outline-dark btn-sm' %>
+  </div>
+<% end %>

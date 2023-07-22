@@ -1,0 +1,6 @@
+@media (min-width: 992px) {
+  .nav-item {
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+  }
+}
