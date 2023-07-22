@@ -1,6 +1,10 @@
 class PublicRecipesController < ApplicationController
   def index
-    @public_recipes = Recipe.all.where(status: 'public') && Recipe.all.where.not(user_id: current_user.id)
+    @public_recipes = Recipe.select("recipes.*")
+                      .joins(:recipe_foods).joins(:foods)
+                      .select("SUM(foods.price) AS price, COUNT(foods.id) AS quantity")
+                      .group("recipes.id")
+                      .where(public: true).order(created_at: :desc)
   end
 
   def show
