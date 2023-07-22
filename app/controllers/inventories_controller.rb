@@ -22,8 +22,8 @@ class InventoriesController < ApplicationController
   end
 
   def destroy
+    @inventory.inventory_foods.destroy_all
     @inventory.destroy
-    puts "Inventory destroyed: #{@inventory.destroyed?}"
     redirect_to inventories_url, notice: 'Inventory was successfully destroyed.'
   end
 

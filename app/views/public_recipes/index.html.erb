@@ -1,11 +1,7 @@
 <section class="my-3 p-3">
-  <% if @recipes.nil? %>
-    <h3 class="text-center">No recipes found</h3>
+  <% if @public_recipes.empty? %>
+    <h3 class="text-center">No public recipes found from other users</h3>
   <% else %>
-    <% @recipes.each do |recipe| %>
-      <% if recipe.status == "public" %>
-        <%= render 'recipe', recipe: recipe %>
-      <% end %>
-    <% end %>
+    <%= render @public_recipes %>
   <% end %>
 </section>
