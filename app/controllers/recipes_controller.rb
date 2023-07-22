@@ -15,6 +15,23 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to @recipe, notice: 'Recipe updated successfully!' }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit, alert: 'Recipe not updated!' }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def create
     @recipe = Recipe.new(recipe_params)
 

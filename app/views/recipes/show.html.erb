@@ -54,10 +54,12 @@
  					<td><%=food_recipe.food.name %></td>
  					<td><%=food_recipe.quantity %></td>
  					<td><%=food_recipe.quantity * food_recipe.food.price %></td>
- 					<td>
- 						<%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, id: food_recipe), class: 'me-1' %>
-       			<%= link_to 'Remove', recipe_recipe_food_path(@recipe, id: food_recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
- 					</td>
+ 					<td class="d-flex gap-2">
+ 						<%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, food_recipe), class: 'btn btn-danger btn-sm' %>
+  <%= form_with(url: recipe_recipe_food_path(@recipe, food_recipe), method: :delete, data: { confirm: 'Are you sure?' }) do |f| %>
+    <%= f.submit 'Remove', class: 'btn btn-danger btn-sm' %>
+  <% end %>
+  </td>
  				</tr>
  			<% end %>
  			</tbody>

@@ -1,5 +1,6 @@
+<h3>Add Ingredient</h3>
+
 <%= form_with model: @recipe_food, url: recipe_recipe_foods_path(@recipe) do |f| %>
-  <!-- Form fields for creating a new RecipeFood -->
   <div>
     <%= f.label :food_id, "Food" %>
     <%= f.collection_select :food_id, @foods, :id, :name, prompt: "Select a food", class: 'form-control' %>
