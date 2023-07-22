@@ -34,11 +34,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    if params[:recipe][:status] == 'Public' 
-      @recipe.public = true
-    else
-      @recipe.public = false
-    end
+    @recipe.public = params[:recipe][:status] == 'Public'
 
     respond_to do |format|
       if @recipe.save

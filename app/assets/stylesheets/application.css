@@ -177,7 +177,6 @@ body {
 
 .public_recipe_list {
   width: 40vw;
-  margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: flex-start;
@@ -186,7 +185,6 @@ body {
   list-style: none;
   padding: 1rem;
   border: 2px solid rgb(117, 116, 116);
-
 }
 
 .recipe_user h3 {
