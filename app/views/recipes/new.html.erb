@@ -4,7 +4,7 @@
 <%= form_with model: @recipe do |f| %>
   <div>
     <%= f.label :status %>
-    <%= f.select :status, %w[public private], selected: 'public', class: 'form-control' %>
+    <%= f.select :status, %w[Public Private], selected: 'Public', class: 'form-control' %>
   </div>
   <br>
   <div>

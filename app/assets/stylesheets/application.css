@@ -174,3 +174,29 @@ body {
 .navbar-nav .nav-link.sign-in-button:hover {
   background-color: #e0a800;
 }
+
+.public_recipe_list {
+  width: 40vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 1rem auto;
+  list-style: none;
+  padding: 1rem;
+  border: 2px solid rgb(117, 116, 116);
+}
+
+.recipe_user h3 {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.recipe_user p {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.recipe_price {
+  font-size: large;
+}

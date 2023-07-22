@@ -34,6 +34,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.public = params[:recipe][:status] == 'Public'
 
     respond_to do |format|
       if @recipe.save
@@ -66,6 +67,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :cooking_time, :preparation_time, :description, :status, :user_id)
+    params.require(:recipe).permit(:name, :cooking_time, :preparation_time, :description, :public, :user_id)
   end
 end

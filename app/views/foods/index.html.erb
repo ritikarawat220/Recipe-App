@@ -1,4 +1,5 @@
-<h1>Foods</h1>
+
+<h1 style="margin-top:15px">Foods</h1>
 
 <div id="foods">
   <div class="add-food-btn">
@@ -6,8 +7,10 @@
   </div>
 
   <div class="list-foods">
-    <% if @foods.nil?%>
-      <p>There are no foods in the database.</p>
+    <% if @foods.empty?%>
+      <h2 style="color: blue">
+        There are no foods in the database.
+      </h2>
     <% else %>
       <p style="color: green"><%= notice %></p>
 
