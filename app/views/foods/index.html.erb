@@ -6,7 +6,7 @@
   </div>
 
   <div class="list-foods">
-    <% if @foods.length == 0%>
+    <% if @foods.nil?%>
       <p>There are no foods in the database.</p>
     <% else %>
       <p style="color: green"><%= notice %></p>
