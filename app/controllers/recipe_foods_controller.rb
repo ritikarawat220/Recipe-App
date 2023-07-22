@@ -43,11 +43,10 @@ class RecipeFoodsController < ApplicationController
 
     if @recipe_food.destroy
       flash[:notice] = 'Recipe food deleted successfully!'
-      redirect_to recipe_path(@recipe)
     else
       flash[:alert] = 'Recipe food could not be deleted!'
-      redirect_to recipe_path(@recipe)
     end
+    redirect_to recipe_path(@recipe)
   end
 
   private
