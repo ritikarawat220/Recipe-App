@@ -119,13 +119,14 @@ cd 'project name'
 👤 **Jean Jacques Buhendwa**
 
 - GitHub: [@jeanbuhendwa](https://github.com/jeanbuhendwa)
-- Twitter: [@jeanbuhendwa](https://twitter.com/jeanjacqueI)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/johnbuhendwa/)
+- LinkedIn: [Jean Jacques buhendwa](https://www.linkedin.com/in/johnbuhendwa/)
+- Twitter: [@JeanjacqueI](https://twitter.com/JeanjacqueI)
 
 👤 **Chere Lemma**
-- GitHub: [@jeanbuhendwa](https://github.com/cherelemma)
-- Twitter: [@jeanbuhendwa](@Chere21271613)
-- LinkedIn: [LinkedIn](https://www.in/chere-lemma27211613)
+
+- GitHub: [Chere Lemma](https://github.com/cherelemma)
+- LinkedIn: [Chere (Urgaya) Lemma](https://www.linkedin.com/in/chere-lemma27211613/)
+- Twitter: [@Chere21271613](https://twitter.com/Chere21271613)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
